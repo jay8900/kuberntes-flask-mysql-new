@@ -8,7 +8,7 @@ metadata:
 
 data:
 
-  FLASK_APP: app.py
+  FLASK_APP: flaskapi.py
 
   MYSQL_ROOT_USER: root
 
