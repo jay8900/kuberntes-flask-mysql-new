@@ -1,0 +1,107 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskapi-deployment
+  labels:
+    app: flaskapi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flaskapi
+  template:
+    metadata:
+      labels:
+        app: flaskapi
+    spec:
+      containers:
+        - name: flaskapi
+          image: flask-api
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+          env:
+            - name: db_root_password
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
+            - name: db_name
+              value: flaskapi
+
+                - name: FLASK_APP
+
+            valueFrom:
+
+              configMapKeyRef:
+
+                name: app-config
+
+                key: FLASK_APP
+
+          - name: MYSQL_ROOT_USER
+
+            valueFrom:
+
+              configMapKeyRef:
+
+                name: app-config
+
+                key: MYSQL_ROOT_USER
+
+          - name: MYSQL_ROOT_PASSWORD
+
+            valueFrom:
+
+              configMapKeyRef:
+
+                name: app-config
+
+                key: MYSQL_ROOT_PASSWORD
+
+          - name: MYSQL_ROOT_HOST
+
+            valueFrom:
+
+              configMapKeyRef:
+
+                name: app-config
+
+                key: MYSQL_ROOT_HOST
+
+          - name: MYSQL_ROOT_PORT
+
+            valueFrom:
+
+              configMapKeyRef:
+
+                name: app-config
+
+                key: MYSQL_ROOT_PORT
+
+          - name: MYSQL_ROOT_DB
+
+            valueFrom:
+
+              configMapKeyRef:
+
+                name: app-config
+
+                key: MYSQL_ROOT_DB
+
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-service
+spec:
+  ports:
+  - port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: flaskapi
+  type: LoadBalancer

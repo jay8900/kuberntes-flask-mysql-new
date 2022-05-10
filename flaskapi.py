@@ -17,7 +17,7 @@ class Storage():
     def init(self):
         self.db = pymysql.connect(
         user = os.getenv('MYSQL_USERNAME', 'root'),
-        passwd = os.getenv('MYSQL_PASSWORD', 'admin'),
+        passwd = os.getenv('MYSQL_PASSWORD', 'Pa$$word123'),
         db = os.getenv('MYSQL_ROOT_DB', 'mydb'),
         host = os.getenv('MYSQL_ROOT_HOST', 'localhost'),
         port = os.getenv('MYSQL_ROOT_PORT', '3306'))
