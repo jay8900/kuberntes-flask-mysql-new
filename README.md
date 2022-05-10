@@ -48,8 +48,8 @@ The API can only be used if the proper database and schemas are set. This can be
    `kubectl run -it --rm --image=mysql --restart=Never mysql-client -- mysql --host mysql --password=<super-secret-password>`
    make sure to enter the (decoded) password specified in the `flaskapi-secrets.yml`
 2. Create the database and table
-   1. `CREATE DATABASE flaskapi;`
-    2. `USE flaskapi;`
+   1. `CREATE DATABASE mydb;`
+    2. `USE mydb;`
     3. `CREATE TABLE IF NOT EXISTS scores(score INT);`
     
 ## Expose the API
