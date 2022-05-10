@@ -45,8 +45,8 @@ You can check the status of the pods, services and deployments.
 ## Creating database and schema
 The API can only be used if the proper database and schemas are set. This can be done via the terminal.
 1. Connect to your `MySQL database` by setting up a temporary pod as a `mysql-client`: 
-   `kubectl run -it --rm --image=mysql --restart=Never mysql-client -- mysql --host mysql --password=<super-secret-password>`
-   make sure to enter the (decoded) password specified in the `flaskapi-secrets.yml`
+   `kubectl run -it --rm --image=mysql --restart=Never mysql-client -- mysql --host mysql --password=<secret-password>`
+   make sure to enter the (decoded) password specified in the `secrets.yaml`
 2. Create the database and table
    1. `CREATE DATABASE mydb;`
     2. `USE mydb;`
