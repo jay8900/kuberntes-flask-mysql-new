@@ -34,10 +34,11 @@ Use the output of the following command
 ## Deployments
 Get the secrets, persistent volume in place and apply the deployments for the `MySQL` database and `Flask API`
 
-1. Add the secrets to your `kubernetes cluster`: `kubectl apply -f secrets.yml`
-2. Create the `persistent volume` and `persistent volume claim` for the database: `kubectl apply -f mysql-pv.yml`
-3. Create the `MySQL` deployment: `kubectl apply -f mysql-deployment.yml`
-4. Create the `Flask API` deployment: `kubectl apply -f deployment.yml`
+1. Add the secrets to your `kubernetes cluster`: `kubectl apply -f secrets.yaml`
+2. Add the config-map to your `kubernetes cluster`: `kubectl apply -f config-map.yaml`
+3. Create the `persistent volume` and `persistent volume claim` for the database: `kubectl apply -f mysql-pv.yaml`
+4. Create the `MySQL` deployment: `kubectl apply -f mysql-deployment.yaml`
+5. Create the `Flask API` deployment: `kubectl apply -f deployment.yaml`
 
 You can check the status of the pods, services and deployments.
 
