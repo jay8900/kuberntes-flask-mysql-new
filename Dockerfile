@@ -1,4 +1,4 @@
-FROM python:3.6-slim
+FROM python:3
 
 RUN apt-get clean \
     && apt-get -y update
@@ -16,4 +16,4 @@ RUN pip install -r requirements.txt --src /usr/local/src
 COPY . .
 
 EXPOSE 3000
-CMD [ "python", "flaskapi.py" ]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=3000" ]
